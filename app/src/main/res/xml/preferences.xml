@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/settings"
+        android:key="pref_key_storage_settings">
+        <CheckBoxPreference
+            android:key="bg_change"
+            android:title="@string/setting_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
