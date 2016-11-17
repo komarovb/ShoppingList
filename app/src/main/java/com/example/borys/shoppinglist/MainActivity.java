@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements ShoppingList.OnFr
     ShoppingList list;
     ItemView itemView;
 
+    Toolbar bar;
+
     public static String EXTRA_PREFERENCES_NAME = "name";
     private String preferencesName = "prefs";
 
@@ -49,15 +51,8 @@ public class MainActivity extends AppCompatActivity implements ShoppingList.OnFr
         setSupportActionBar(toolbar);
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        SharedPreferences sharedPref = getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
-        Boolean change = sharedPref.getBoolean("bg_change",true);
-
-        if(change){
-            findViewById(R.id.toolbar).setBackgroundColor(ContextCompat.getColor(this, R.color.colorChecked));
-        }
-        else{
-            findViewById(R.id.toolbar).setBackgroundColor(Color.BLUE);
-        }
+        bar = (Toolbar) findViewById(R.id.toolbar);
+        checkSet();
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +148,21 @@ public class MainActivity extends AppCompatActivity implements ShoppingList.OnFr
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            checkSet();
+        }
+    }
+
+    public void checkSet() {
+        SharedPreferences sharedPref = getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
+        Boolean change = sharedPref.getBoolean("bg_change",true);
+
+        if(change){
+            bar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorChecked));
+        }
+        else{
+            bar.setBackgroundColor(Color.BLUE);
         }
     }
 

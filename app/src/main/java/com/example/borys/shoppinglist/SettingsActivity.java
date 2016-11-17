@@ -1,6 +1,8 @@
 package com.example.borys.shoppinglist;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -28,7 +30,10 @@ public class SettingsActivity extends PreferenceActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean(KEY_PREF, (Boolean) newValue);
                 editor.commit();
-                
+
+                Intent in = new Intent(SettingsActivity.this,MainActivity.class);
+                setResult(Activity.RESULT_OK,in);
+
                 return true;
             }
         });

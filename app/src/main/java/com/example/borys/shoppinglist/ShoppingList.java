@@ -347,4 +347,5 @@ public class ShoppingList extends Fragment implements ItemAdapter.UsefulThing {
         void displayItem(ShoppingListItem item);
         String makePicAndSave(int id);
     }
+
 }
