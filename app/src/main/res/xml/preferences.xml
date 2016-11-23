@@ -7,6 +7,15 @@
             android:key="bg_change"
             android:title="@string/setting_title"
             android:defaultValue="false" />
+        <ListPreference
+            android:defaultValue="NOTHING WAS SELECTED"
+            android:dialogTitle="Choose color"
+            android:entries="@array/list_pref"
+            android:entryValues="@array/list_data"
+            android:key="list_pref"
+            android:summary="Select button color"
+            android:title="Change color"
+            />
     </PreferenceCategory>
 
 </PreferenceScreen>

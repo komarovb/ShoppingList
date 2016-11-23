@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_pref">
+        <item>White color</item>
+        <item>Pink color</item>
+        <item>Black color</item>
+    </string-array>
+    <string-array name="list_data">
+        <item>WHITE</item>
+        <item>PINK</item>
+        <item>BLACK</item>
+    </string-array>
+</resources>

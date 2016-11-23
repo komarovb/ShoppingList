@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -157,12 +157,26 @@ public class MainActivity extends AppCompatActivity implements ShoppingList.OnFr
     public void checkSet() {
         SharedPreferences sharedPref = getSharedPreferences(preferencesName, Context.MODE_PRIVATE);
         Boolean change = sharedPref.getBoolean("bg_change",true);
+        String value = sharedPref.getString("list_pref","");
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         if(change){
             bar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorChecked));
         }
         else{
-            bar.setBackgroundColor(Color.BLUE);
+            bar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        }
+        if(value.equals("PINK")){
+            fab.setColorFilter(ContextCompat.getColor(this,R.color.colorBlack));
+            fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this,R.color.colorChecked)));
+        }
+        else if(value.equals("BLACK")){
+            fab.setColorFilter(ContextCompat.getColor(this,R.color.colorChecked));
+            fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this,R.color.colorBlack)));
+        }
+        else if(value.equals("WHITE")){
+            fab.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary));
+            fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this,R.color.colorWhite)));
         }
     }
 
